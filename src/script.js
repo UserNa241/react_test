@@ -5,11 +5,7 @@ if (menuButton && sidebar) {
     menuButton.addEventListener('click', () => {
         sidebar.classList.toggle('open');
         document.body.classList.toggle('sidebar-open');
-    });
-    menuButton.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === '') {
-            menuButton.click();
-        }
+        menuButton.setAttribute('aria-expanded', 'true');
     });
 }
 
@@ -18,7 +14,6 @@ const sideBar = document.querySelectorAll('.sidebar-link');
 
 sideBar.forEach((btn) => {
     btn.addEventListener('click', () => {
-
         const active = document.querySelector('.sidebar-link-active');
 
         if (active) {
@@ -29,6 +24,22 @@ sideBar.forEach((btn) => {
         btn.classList.add('sidebar-link-active');
         btn.setAttribute('aria-pressed', 'true');
 
+    })
+});
+
+const miniBar = document.querySelectorAll('.mini-link');
+
+miniBar.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const active = document.querySelector('.mini-link-active');
+
+        if (active) {
+            active.classList.remove('mini-link-active');
+            active.setAttribute('aria-pressed', 'false');
+        }
+
+        btn.classList.add('mini-link-active');
+        btn.setAttribute('aria-pressed', 'true');
     });
 });
 
@@ -36,16 +47,17 @@ const categoryButton = document.querySelectorAll('.category-button');
 
 categoryButton.forEach((btn) => {
     btn.addEventListener('click', () => {
+
         const active = document.querySelector('.category-button-active');
 
         if (active) {
-            active.classList.remove('sidebar-link-active');
+            active.classList.remove('category-button-active');
             active.setAttribute('aria-pressed', 'false');
         }
 
-        btn.classList.add('sidebar-link-active');
+        btn.classList.add('category-button-active');
         btn.setAttribute('aria-pressed', 'true');
-    });
+    })
 });
 
 const gridContainer = document.querySelector('.video-grid');

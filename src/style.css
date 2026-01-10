@@ -6,15 +6,6 @@
 
 :root {
     --card-min: 425px;
-    --focus-ring: red;
-}
-
-/* fallback */
-@font-face {
-    font-family: 'Material Symbols Outlined';
-    font-style: normal;
-    font-weight: 400;
-    src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v307/kJF1BvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oDMzByHX9rA6RzaxHMPdY43zj-jCxv3fzvRNU22ZXGJpEpjC_1v-p_4MrImHCIJIZrDCvHOej.woff2) format('woff2');
 }
 
 .material-symbols-outlined {
@@ -22,27 +13,22 @@
     font-weight: normal;
     font-style: normal;
 
-    font-size: 24px; /* icon size */
-    line-height: 1; /* prevents extra vertical space */
+    font-size: 24px;
+    line-height: 1;
 
     display: inline-block;
     vertical-align: middle;
 
-    /* optional but recommended: ensure it behaves like an icon, not text */
-    letter-spacing: normal;
-    text-transform: none;
-    white-space: nowrap;
-    direction: ltr;
-    -webkit-font-smoothing: antialiased;
 }
 
-button:focus, input:focus {
-    outline: none;
-}
-
-button:focus-visible, .category-button:focus-visible, .category-button-active:focus-visible {
+:focus-visible {
     outline: 2px solid black;
-    outline-offset: 0px;
+    outline-offset: 0;
+}
+
+button:focus-visible {
+    outline: 2px solid black;
+    outline-offset: 0;
 }
 
 .header {
@@ -50,11 +36,13 @@ button:focus-visible, .category-button:focus-visible, .category-button-active:fo
     justify-content: space-between;
     align-items: center;
     height: 60px;
+
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background-color: white;
+
+    background-color: transparent;
     z-index: 101;
 }
 
@@ -75,17 +63,16 @@ body::before {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     z-index: 100;
-    display: none;
 }
 
 .left-section {
     display: flex;
-    justify-content: center;
 }
 
 .menu-btn {
     display: flex;
-    margin-left: 16px;
+    margin-left: 20px;
+
     background: none;
     border: none;
     cursor: pointer;
@@ -98,10 +85,8 @@ body::before {
 }
 
 .logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
+    align-content: center;
+    margin-left: 20px;
 }
 
 .yt-logo {
@@ -112,22 +97,15 @@ body::before {
     font-size: 10px;
     color: #606060;
     font-family: Roboto, Arial, sans-serif;
-    position: absolute;
+    position: relative;
     top: 10px;
 }
 
-.logo {
-    font-size: 30px;
-    font-weight: bold;
-    margin: 0;
-    letter-spacing: -1px;
-    font-family: 'Arial Narrow', Helvetica, sans-serif;
-}
 
 .middle-section {
     display: flex;
-    align-items: center;
     flex: 1;
+    align-items: center;
     max-width: 600px;
     margin: 0 40px;
 }
@@ -146,14 +124,10 @@ body::before {
     border-radius: 40px 0 0 40px;
 }
 
-.search-bar:focus-visible {
-    outline: 1px solid blue;
-    outline-offset: 0px;
-}
-
 .search-btn {
-    width: 60px;
+    width: 56px;
     background-color: #f8f8f8;
+
     border: 1px solid #ccc;
     border-radius: 0 40px 40px 0;
     cursor: pointer;
@@ -165,34 +139,29 @@ body::before {
 }
 
 .mic-btn {
-    width: 40px;
-    height: 40px;
+    margin-left: 10px;
+    cursor: pointer;
+    padding: 6px;
     border-radius: 50%;
     border: none;
     background-color: #f8f8f8;
-    margin-left: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .mic-btn:hover {
     background-color: #e5e5e5;
 }
 
+
 .sign-in-button {
+    margin-right: 6px;
+    cursor: pointer;
     font-size: 16px;
+    font-weight: bold;
     color: blue;
-    border: 1px solid #e5e5e5;
+    border: 1px solid lightgray;
     background-color: white;
     padding: 10px 14px;
-    font-weight: bold;
-    cursor: pointer;
     border-radius: 18px;
-    align-items: center;
-    margin-right: 10px;
 }
 
 .sign-in-button:hover {
@@ -201,9 +170,8 @@ body::before {
 }
 
 .body {
-    background-color: #3ea6ff;
+    background-color: white;
 }
-
 
 .sidebar {
     position: fixed;
@@ -212,38 +180,45 @@ body::before {
     height: calc(100vh - 60px);
     background: white;
     transform: translateX(-100%);
-    z-index: 1000;
-    transition: translate 200ms ease-in-out;
+    z-index: 100;
+    transition: transform 100ms ease-in-out;
+    padding: 12px 20px 12px 4px;
+}
+
+.sidebar .material-symbols-outlined {
+    font-size: 28px;
 }
 
 .sidebar.open {
     transform: translateX(0);
 }
 
-.sidebar-link-active {
-    background-color: #efefef;
-}
-
 .sidebar-link {
     display: flex;
     align-items: center;
-    justify-content: left;
-    margin-left: 5px;
+    width: 100%;
     margin-right: 12px;
-    font-size: 16px;
-    font-family: Helvetica;
-    background: none;
+    background: white;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     padding: 8px 20px;
 }
 
+.sidebar-link-active {
+    background-color: #efefef;
+}
+
+.sidebar-label {
+    display: inline;
+    font: normal 14px Arial;
+}
+
 .sidebar-link:hover {
     background-color: #efefef;
 }
 
-.sidebar-link:focus-visible, .sidebar-link-active:focus {
+.sidebar-link:focus-visible, .sidebar-link-active:focus-visible {
     background-color: #efefef;
     outline: none;
 }
@@ -312,6 +287,10 @@ body.sidebar-open .mini-sidebar {
     margin: 0 6px 0 4px;
 }
 
+.mini-link-active {
+    background-color: #efefef;
+}
+
 .mini-link:hover {
     background-color: #efefef;
 }
@@ -321,6 +300,10 @@ body.sidebar-open .mini-sidebar {
     font-size: 10px;
     font-family: Arial;
     margin-top: 2px;
+}
+
+.mini-link-active .material-symbols-outlined {
+    font-size: 28px;
 }
 
 .content {
@@ -397,7 +380,6 @@ body.sidebar-open .mini-sidebar {
     transition: transform 0.2s, background-color 0.2s, z-index 0s;
     justify-content: start;
     border-radius: 10px;
-    height: fit-content;
 }
 
 .video-card:hover {

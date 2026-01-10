@@ -1,155 +1,178 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Youtube</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+	<meta charset="UTF-8">
+	<meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+		  name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	<title>Youtube</title>
+	<link href="style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 </head>
 
 <body>
 <header class="header">
 
-    <div class="left-section">
-        <div class="menu-holder">
-        <div class="icn-btn menu-btn" tabindex="0" type="button" aria-label="Menu">
-            <span class="material-symbols-outlined">menu</span>
-        </div>
-        </div>
+	<div class="left-section">
+
+		<button
+				aria-controls="sidebar"
+				aria-expanded="false"
+				aria-label="Open menu"
+				class="icn-btn menu-btn"
+				type="button"
+		>
+			<span aria-hidden="true" class="material-symbols-outlined">menu</span>
+		</button>
 
 
-        <div class="logo-container">
-            <a href="https://www.youtube.com" target="_blank" >
-                <img class="yt-logo "
-                    src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg"
-                    alt="Youtube Logo">
+		<div class="logo-container">
+			<a href="https://www.youtube.com" target="_blank">
+				<img alt="Youtube Logo"
+					 class="yt-logo "
+					 src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg">
 
-                <span class="country-code">NP</span>
-            </a>
-        </div>
+				<span class="country-code">NP</span>
+			</a>
+		</div>
 
-    </div>
+	</div>
 
-    <div class="middle-section">
-        <div class ="search-box">
-        <input class="search-bar" type="text" placeholder="Search">
-        <button class="search-btn" aria-label="Search">
-            <span class="material-symbols-outlined">search</span>
-        </button>
-        </div>
+	<div class="middle-section">
+		<div class="search-box">
+			<input class="search-bar" placeholder="Search" type="text">
+			<button aria-label="Search" class="search-btn">
+				<span class="material-symbols-outlined">search</span>
+			</button>
+		</div>
 
-        <button class="icon-btn mic-btn">
-            <span class="material-symbols-outlined">mic</span>
-        </button>
-    </div>
+		<button aria-label="Microphone" class="icon-btn mic-btn" type="button">
+			<span class="material-symbols-outlined">mic</span>
+		</button>
 
-    <div class="right-section">
-        <button class="sign-in-button">Sign In</button>
-    </div>
+	</div>
+
+	<div class="right-section">
+		<button class="sign-in-button">Sign In</button>
+	</div>
 
 </header>
 
 <div class="body">
 
-    <nav class="sidebar">
-        <div class="sidebar-link sidebar-link-first sidebar-link-active" role="button" tabindex="0">
-            <div class="sidebar-icon">
-                <span class="material-symbols-outlined">home</span>
-            </div>
-            Home
-        </div>
+	<nav aria-label="Sidebar" class="sidebar" id="sidebar">
 
-        <div class="sidebar-link" role="button" tabindex="0">
-            <div class="sidebar-icon">
-                <span class="material-symbols-outlined">play_arrow</span>
-            </div>Shorts</div>
+		<button aria-pressed="true" class="sidebar-link sidebar-link-active" type="button">
+            <span class="sidebar-icon">
+                <span aria-hidden="true" class="material-symbols-outlined">home</span>
+            </span>
+			<span class="sidebar-label">Home</span>
+		</button>
 
-        <div class="sidebar-link" role="button" tabindex="0">
-            <div class="sidebar-icon">
-                <span class="material-symbols-outlined">subscriptions</span>
-            </div>
-            Subscriptions</div>
+		<button aria-pressed="false" class="sidebar-link" type="button">
+  			<span class="sidebar-icon">
+				<span aria-hidden="true" class="material-symbols-outlined">play_arrow</span>
+			</span>
+			<span class="sidebar-label">Shorts</span>
+		</button>
 
-        <hr class="divider">
-        <h3 class="section-title">You</h3>
+		<button aria-pressed="false" class="sidebar-link" type="button">
+			<span class="sidebar-icon">
+				<span aria-hidden="true" class="material-symbols-outlined">subscriptions</span>
+			</span>
+			<span class="sidebar-label">Subscriptions</span>
+		</button>
 
-        <div class="sidebar-link" role="button" tabindex="0">
-            <div class="sidebar-icon">
-                <span class="material-symbols-outlined">download</span>
-            </div>Downloads</div>
+		<hr class="divider">
+		<h3 class="section-title">You</h3>
 
-        <div class="sidebar-link" role="button" tabindex="0">
-            <div class="sidebar-icon">
-                <span class="material-symbols-outlined">history</span>
-            </div>
-            History</div>
+		<button aria-pressed="false" class="sidebar-link" type="button">
+			<span class="sidebar-icon">
+				<span aria-hidden="true" class="material-symbols-outlined">download</span>
+			</span>
+			<span class="sidebar-label">Downloads</span>
+		</button>
 
-        <div class="sidebar-link" role="button" tabindex="0">
-            <div class="sidebar-icon">
-                <span class="material-symbols-outlined">watch_later</span>
-            </div>
-            Watch Later</div>
-    </nav>
+		<button aria-pressed="false" class="sidebar-link" type="button">
+			<span class="sidebar-icon">
+				<span aria-hidden="true" class="material-symbols-outlined">history</span>
+			</span>
+			<span class="sidebar-label">History</span>
+		</button>
 
-    <div class="mini-sidebar">
-        <div class="mini-link-first" role="button" tabindex="0">
-        <div class="mini-icon">
-                <span class="material-symbols-outlined">home</span>
-        </div>
-            <p>Home</p>
-        </div>
+		<button aria-pressed="false" class="sidebar-link" type="button">
+			<span class="sidebar-icon">
+				<span aria-hidden="true" class="material-symbols-outlined">watch_later</span>
+			</span>
+			<span class="sidebar-label">Watch Later</span>
+		</button>
+	</nav>
 
-        <div class="mini-link" role="button" tabindex="0">
-            <div class="mini-icon">
-                <span class="material-symbols-outlined">play_arrow</span>
-            </div>
-            <p>Shorts</p>
-        </div>
+	<div class="mini-sidebar">
 
-        <div class="mini-link" role="button" tabindex="0">
-            <div class="mini-icon">
-                <span class="material-symbols-outlined">subscriptions</span>
-            </div>
-            <p>Subscription</p>
-        </div>
+		<button class="mini-link mini-link-active" type="button" aria-pressed="true">
+		  <span class="mini-icon">
+		    <span class="material-symbols-outlined" aria-hidden="true">home</span>
+		  </span>
+			<span class="mini-label">Home</span>
+		</button>
 
-        <div class="mini-link" role="button" tabindex="0">
-            <div class="mini-icon">
-                <span class="material-symbols-outlined">account_circle_off</span>
-            </div>
-            <p>You</p>
-        </div>
+		<button class="mini-link" type="button" aria-pressed="false">
+		  <span class="mini-icon">
+		    <span class="material-symbols-outlined" aria-hidden="true">play_arrow</span>
+		  </span>
+			<span class="mini-label">Shorts</span>
+		</button>
 
-        <div class="mini-link" role="button" tabindex="0">
-            <div class="mini-icon">
-                <span class="material-symbols-outlined">download</span>
-            </div>
-            <p>Downloads</p>
-        </div>
+		<button class="mini-link" type="button" aria-pressed="false">
+		  <span class="mini-icon">
+		    <span class="material-symbols-outlined" aria-hidden="true">subscriptions</span>
+		  </span>
+			<span class="mini-label">Subscriptions</span>
+		</button>
 
+		<button class="mini-link" type="button" aria-pressed="false">
+		  <span class="mini-icon">
+		    <span class="material-symbols-outlined" aria-hidden="true">download</span>
+		  </span>
+			<span class="mini-label">Downloads</span>
+		</button>
 
+		<button class="mini-link" type="button" aria-pressed="false">
+		  <span class="mini-icon">
+		    <span class="material-symbols-outlined" aria-hidden="true">history</span>
+		  </span>
+			<span class="mini-label">History</span>
+		</button>
 
-     </div>
+		<button class="mini-link" type="button" aria-pressed="false">
+		  <span class="mini-icon">
+		    <span class="material-symbols-outlined" aria-hidden="true">watch_later</span>
+		  </span>
+			<span class="mini-label">Watch Later</span>
+		</button>
 
-    <main class="content">
-        <div class="category-bar">
-            <button class="category-button category-button-active">All</button>
-            <button class="category-button">Trending</button>
-            <button class="category-button">Music</button>
-            <button class="category-button">Video</button>
-            <button class="category-button">Gaming</button>
-            <button class="category-button">Physics</button>
-            <button class="category-button">Space</button>
-            <button class="category-button">Art</button>
-            <button class="category-button">Football</button>
-            <button class="category-button">Cricket</button>
-            <button class="category-button">New To You</button>
-        </div>
-        <div class="video-grid"></div>
-    </main>
+	</div>
+
+	<main class="content">
+
+		<div class="category-bar">
+			<button class="category-button category-button-active" type="button" aria-pressed="true">All</button>
+			<button class="category-button" type="button" aria-pressed="false">Music</button>
+			<button class="category-button" type="button" aria-pressed="false">Gaming</button>
+			<button class="category-button" type="button" aria-pressed="false">Podcasts</button>
+			<button class="category-button" type="button" aria-pressed="false">Computer Programming</button>
+			<button class="category-button" type="button" aria-pressed="false">CSS</button>
+			<button class="category-button" type="button" aria-pressed="false">HTML</button>
+			<button class="category-button" type="button" aria-pressed="false">JavaScript</button>
+			<button class="category-button" type="button" aria-pressed="false">Flutter</button>
+			<button class="category-button" type="button" aria-pressed="false">Fullstack Developer</button>
+			<button class="category-button" type="button" aria-pressed="false">Live</button>
+			<button class="category-button" type="button" aria-pressed="false">Mobile</button>
+		</div>
+
+		<div class="video-grid"></div>
+	</main>
 
 </div>
 

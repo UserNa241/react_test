@@ -10,28 +10,41 @@ if (menuButton && sidebar) {
         if (e.key === 'Enter' || e.key === '') {
             menuButton.click();
         }
-    })
+    });
 }
 
+//Sidebar-Selection
 const sideBar = document.querySelectorAll('.sidebar-link');
-sideBar.forEach((button) => {
-    button.addEventListener('click', () => {
-        const activeCategory = document.querySelector('.sidebar-link-active');
-        if (activeCategory) {
-            activeCategory.classList.remove('sidebar-link-active');
-        }
-        button.classList.add('sidebar-link-active');
-    })
-})
 
-const categoryButton=document.querySelectorAll('.category-button');
-categoryButton.forEach(btn => {
+sideBar.forEach((btn) => {
     btn.addEventListener('click', () => {
-        const currentActive = document.querySelector('.category-button-active');
-        if (currentActive) {
-            currentActive.classList.remove('category-button-active');
+
+        const active = document.querySelector('.sidebar-link-active');
+
+        if (active) {
+            active.classList.remove('sidebar-link-active');
+            active.setAttribute('aria-pressed', 'false');
         }
-        btn.classList.add('category-button-active');
+
+        btn.classList.add('sidebar-link-active');
+        btn.setAttribute('aria-pressed', 'true');
+
+    });
+});
+
+const categoryButton = document.querySelectorAll('.category-button');
+
+categoryButton.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        const active = document.querySelector('.category-button-active');
+
+        if (active) {
+            active.classList.remove('sidebar-link-active');
+            active.setAttribute('aria-pressed', 'false');
+        }
+
+        btn.classList.add('sidebar-link-active');
+        btn.setAttribute('aria-pressed', 'true');
     });
 });
 

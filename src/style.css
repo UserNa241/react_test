@@ -86,9 +86,9 @@ body::before {
 
 .logo-container {
     display: flex;
+    position: relative;
     align-content: center;
     margin-left: 20px;
-    position: relative;
 }
 
 .yt-logo {
@@ -352,7 +352,7 @@ body.sidebar-open .mini-sidebar {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(var(--card-min), 1fr));
     padding: 4px;
-    background-color: blue;
+    gap: 8px 0;
 }
 
 .video-card {
@@ -364,6 +364,7 @@ body.sidebar-open .mini-sidebar {
     transition: transform 200ms ease, box-shadow 200ms ease;
     z-index: 0;
 }
+
 
 .video-card::after {
     content: "";
@@ -407,7 +408,6 @@ body.sidebar-open .mini-sidebar {
 
 .video-info-grid {
     padding-top: 10px;
-    background-color: red;
     display: grid;
     grid-template-columns: 36px 1fr;
     gap: 18px;
@@ -445,7 +445,58 @@ body.sidebar-open .mini-sidebar {
     color: #0f0f0f;
 }
 
+.video-card-skeleton {
+    cursor: default;
+}
 
+.video-card-skeleton .skeleton-thumbnail {
+    background-color: lightgray;
+    aspect-ratio: 16/9;
+    border-radius: 12px;
+}
 
+.video-card-skeleton .skeleton-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
 
+.video-card-skeleton .skeleton-lines {
+    line-height: 12px;
+    border-radius: 6px;
+    margin-top: 8px;
+    background-color: lightgray;
+}
 
+.video-card-skeleton .skeleton-lines.w90 {
+    width: 90%;
+}
+
+.video-card-skeleton .skeleton-lines.w70 {
+    width: 70%;
+}
+
+.video-card-skeleton .skeleton-lines.w50 {
+    width: 50%;
+}
+
+.video-card-skeleton .skeleton-avatar,
+.video-card-skeleton .skeleton-thumbnail,
+.video-card-skeleton .skeleton-lines {
+    background-size: 200% 100%;
+    background: linear-gradient(90deg, #e5e5e5, #f2f2f2, #e5e5e5);
+    animation: shimmer 1.5s linear infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.scroll-sentinel {
+    height: 1px;
+}

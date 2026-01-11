@@ -311,7 +311,7 @@ body.sidebar-open .mini-sidebar {
 }
 
 .category-bar::-webkit-scrollbar {
-    --webkit-scrollbar: none;
+    display: none;
 }
 
 .category-button, .category-button-active {
@@ -468,15 +468,15 @@ body.sidebar-open .mini-sidebar {
     background-color: lightgray;
 }
 
-.video-card-skeleton .skeleton-lines.w90 {
+.video-card-skeleton .skeleton-lines.w-90 {
     width: 90%;
 }
 
-.video-card-skeleton .skeleton-lines.w70 {
+.video-card-skeleton .skeleton-lines.w-70 {
     width: 70%;
 }
 
-.video-card-skeleton .skeleton-lines.w50 {
+.video-card-skeleton .skeleton-lines.w-50 {
     width: 50%;
 }
 

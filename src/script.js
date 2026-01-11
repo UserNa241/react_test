@@ -1,13 +1,27 @@
 const menuButton = document.querySelector('.menu-btn');
 const sidebar = document.querySelector('.sidebar');
 
+function isExpanded() {
+    return menuButton.getAttribute('aria-expanded') === 'true';
+}
+
+function setExpanded(next) {
+    menuButton.setAttribute('aria-expanded', String(next));
+    sidebar.classList.toggle('open', next);
+    document.body.classList.toggle('sidebar-open', next);
+}
+
 if (menuButton && sidebar) {
+
     menuButton.addEventListener('click', () => {
-        sidebar.classList.toggle('open');
-        document.body.classList.toggle('sidebar-open');
-        menuButton.setAttribute('aria-expanded', 'true');
+        setExpanded(!isExpanded());
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setExpanded(false);
     });
 }
+
 
 //Sidebar-Selection
 const sideBar = document.querySelectorAll('.sidebar-link');

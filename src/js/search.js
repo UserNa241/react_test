@@ -4,6 +4,9 @@ export function initSearch({sidebar} = {}) {
 	const searchBackBtn = document.querySelector(".search-back-btn");
 	const searchInput = document.querySelector(".search-bar");
 
+	const content = document.querySelector(".content");
+	const minibar = document.querySelector(".mini-sidebar");
+
 	if (!searchToggleBtn || !searchBackBtn || !searchInput) {
 		return {
 			isOpen: () => false,
@@ -23,14 +26,19 @@ export function initSearch({sidebar} = {}) {
 		searchToggleBtn.setAttribute("aria-expanded", "true");
 
 		// close sidebar if provided
-		sidebar?.close?.();
+		sidebar.close();
+		content.setAttribute("inert", "");
+		minibar.setAttribute("inert", "");
 
 		searchInput.focus();
+
 	}
 
 	function close() {
 		document.body.classList.remove("search-open");
 		searchToggleBtn.setAttribute("aria-expanded", "false");
+		content.removeAttribute("inert");
+		minibar.removeAttribute("inert");
 		searchToggleBtn.focus();
 	}
 

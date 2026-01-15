@@ -7,7 +7,7 @@
         --minibar-height: 56px;
 
         /*z-index values*/
-        --z-backdrop: 150;
+        --z-backdrop: 300;
     }
 
     html, body {
@@ -214,7 +214,9 @@
     }
 
     .video-info-grid {
+        grid-template-columns: 36px 1fr 30px;
         padding: 6px 10px;
+        padding-right: 4px;
         gap: 8px;
     }
 
@@ -228,6 +230,15 @@
 
     .video-stats {
         font-size: 12px;
+    }
+
+    .video-menu-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .video-menu-btn .material-symbols-outlined {
+        font-size: 20px;
     }
 
     .video-card-skeleton {

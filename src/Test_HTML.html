@@ -16,7 +16,7 @@
 		  rel="stylesheet">
 </head>
 
-<body >
+<body>
 <header class="header">
 
 	<div class="left-section">
@@ -47,7 +47,7 @@
 	<div class="middle-section">
 
 		<button class="search-back-btn" type="button" aria-label="Back">
-					  <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
+			<span class="material-symbols-outlined" aria-hidden="true">arrow_back</span>
 		</button>
 
 		<div class="search-box">
@@ -64,10 +64,10 @@
 	</div>
 
 	<div class="right-section">
-		<button class="sign-in-button">Sign In</button>
-		<button class="mobile-search-toggle" type="button" aria-label="Open search" aria-expanded="false">
-		  <span class="material-symbols-outlined" aria-hidden="true">search</span>
-		</button>
+		<button class="sign-in-button">Sign In
+			<button class="mobile-search-toggle" type="button" aria-label="Open search" aria-expanded="false">
+				<span class="material-symbols-outlined" aria-hidden="true">search</span>
+			</button>
 		</button>
 	</div>
 
@@ -77,21 +77,21 @@
 
 	<nav aria-label="Sidebar" class="sidebar" id="sidebar">
 
-		<button aria-pressed="true" class="sidebar-link sidebar-link-active" type="button">
+		<button aria-pressed="true" class="sidebar-link sidebar-link-active" type="button" data-id="home">
             <span class="sidebar-icon">
                 <span aria-hidden="true" class="material-symbols-outlined">home</span>
             </span>
 			<span class="sidebar-label">Home</span>
 		</button>
 
-		<button aria-pressed="false" class="sidebar-link" type="button">
+		<button aria-pressed="false" class="sidebar-link" type="button" data-id="shorts">
   			<span class="sidebar-icon">
 				<span aria-hidden="true" class="material-symbols-outlined">play_arrow</span>
 			</span>
 			<span class="sidebar-label">Shorts</span>
 		</button>
 
-		<button aria-pressed="false" class="sidebar-link" type="button">
+		<button aria-pressed="false" class="sidebar-link" type="button" data-id="subscriptions">
 			<span class="sidebar-icon">
 				<span aria-hidden="true" class="material-symbols-outlined">subscriptions</span>
 			</span>
@@ -101,59 +101,81 @@
 		<hr class="divider">
 		<h3 class="section-title">You</h3>
 
-		<button aria-pressed="false" class="sidebar-link" type="button">
-			<span class="sidebar-icon">
-				<span aria-hidden="true" class="material-symbols-outlined">download</span>
-			</span>
-			<span class="sidebar-label">Downloads</span>
-		</button>
-
-		<button aria-pressed="false" class="sidebar-link" type="button">
+		<button aria-pressed="false" class="sidebar-link" type="button" data-id="history">
 			<span class="sidebar-icon">
 				<span aria-hidden="true" class="material-symbols-outlined">history</span>
 			</span>
 			<span class="sidebar-label">History</span>
 		</button>
 
-		<button aria-pressed="false" class="sidebar-link" type="button">
+		<button aria-pressed="false" class="sidebar-link" type="button" data-id="playlists">
+			<span class="sidebar-icon">
+				<span aria-hidden="true" class="material-symbols-outlined">playlist_add</span>
+			</span>
+			<span class="sidebar-label">Playlists</span>
+		</button>
+
+		<button aria-pressed="false" class="sidebar-link" type="button" data-id="your_videos">
+			<span class="sidebar-icon">
+				<span aria-hidden="true" class="material-symbols-outlined">video_library</span>
+			</span>
+			<span class="sidebar-label">Your Videos</span>
+		</button>
+
+		<button aria-pressed="false" class="sidebar-link" type="button" data-id="watch_later">
 			<span class="sidebar-icon">
 				<span aria-hidden="true" class="material-symbols-outlined">watch_later</span>
 			</span>
 			<span class="sidebar-label">Watch Later</span>
 		</button>
+
+		<button aria-pressed="false" class="sidebar-link" type="button" data-id="liked_videos">
+			<span class="sidebar-icon">
+				<span aria-hidden="true" class="material-symbols-outlined">thumb_up</span>
+			</span>
+			<span class="sidebar-label">Liked Videos</span>
+		</button>
+
+		<button aria-pressed="false" class="sidebar-link" type="button" data-id="downloads">
+			<span class="sidebar-icon">
+				<span aria-hidden="true" class="material-symbols-outlined">download</span>
+			</span>
+			<span class="sidebar-label">Downloads</span>
+		</button>
+
 	</nav>
 
 	<div class="mini-sidebar">
 
-		<button class="mini-link mini-link-active" type="button" aria-pressed="true">
+		<button class="mini-link" type="button" aria-pressed="true" data-id="home">
 		  <span class="mini-icon">
 		    <span class="material-symbols-outlined" aria-hidden="true">home</span>
 		  </span>
 			<span class="mini-label">Home</span>
 		</button>
 
-		<button class="mini-link" type="button" aria-pressed="false">
+		<button class="mini-link" type="button" aria-pressed="false" data-id="shorts">
 		  <span class="mini-icon">
 		    <span class="material-symbols-outlined" aria-hidden="true">play_arrow</span>
 		  </span>
 			<span class="mini-label">Shorts</span>
 		</button>
 
-		<button class="mini-link" type="button" aria-pressed="false">
+		<button class="mini-link" type="button" aria-pressed="false" data-id="subscriptions">
 		  <span class="mini-icon">
 		    <span class="material-symbols-outlined" aria-hidden="true">subscriptions</span>
 		  </span>
 			<span class="mini-label">Subscriptions</span>
 		</button>
 
-		<button class="mini-link" type="button" aria-pressed="false">
+		<button class="mini-link" type="button" aria-pressed="false" data-id="account">
 				  <span class="mini-icon">
 				    <span class="material-symbols-outlined" aria-hidden="true">Account_Circle</span>
 				  </span>
 			<span class="mini-label">Account</span>
 		</button>
 
-		<button class="mini-link" type="button" aria-pressed="false">
+		<button class="mini-link" type="button" aria-pressed="false" data-id="downloads">
 		  <span class="mini-icon">
 		    <span class="material-symbols-outlined" aria-hidden="true">download</span>
 		  </span>

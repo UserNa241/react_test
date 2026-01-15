@@ -1,9 +1,9 @@
 // js/sidebar.js
-import {initPressedGroup} from "./selection.js";
 
 export function initSidebar() {
 	const menuButton = document.querySelector(".menu-btn");
 	const sidebar = document.querySelector(".sidebar");
+	const Links = Array.from(sidebar.querySelectorAll(".sidebar-link"));
 
 	if (!menuButton || !sidebar) {
 		return {
@@ -17,36 +17,51 @@ export function initSidebar() {
 		};
 	}
 
-	let lastFocus = null;
+	let LastFocus = menuButton;
+	document.addEventListener("focusin", (e) => {
+		if (!sidebar.contains(e.target)) {
+			LastFocus = e.target;
+		}
+	})
 
 	function isOpen() {
 		return menuButton.getAttribute("aria-expanded") === "true";
 	}
 
-	function setOpen(next) {
-		// save last focus only if it is outside the sidebar
-		const current = document.activeElement;
-		if (!sidebar.contains(current)) lastFocus = current;
+	function TrapSidebarTab(e) {
+		if (e.key !== 'Tab') return;
+		if (!isOpen()) return;
 
+		const active = document.activeElement;
+
+		if (e.shiftKey && active === Links[0]) {
+			e.preventDefault();
+			Links[Links.length - 1].focus();
+			return;
+		}
+
+		if (!e.shiftKey && active === Links[Links.length - 1]) {
+			e.preventDefault();
+			Links[0].focus();
+			return;
+		}
+	}
+
+	function setOpen(next) {
 		menuButton.setAttribute("aria-expanded", String(next));
 		sidebar.classList.toggle("open", next);
 		document.body.classList.toggle("sidebar-open", next);
 
 		if (next) {
-			sidebar.querySelector(".sidebar-link")?.focus();
+			Links[0].focus();
+			sidebar.addEventListener("keydown", TrapSidebarTab);
 		} else {
-			(lastFocus || menuButton).focus();
+			sidebar.removeEventListener("keydown", TrapSidebarTab);
+			LastFocus.focus();
 		}
 	}
 
 	menuButton.addEventListener("click", () => setOpen(!isOpen()));
-
-	// active/pressed selection inside sidebar
-	initPressedGroup({
-		container: sidebar,
-		itemSelector: ".sidebar-link",
-		activeClass: "sidebar-link-active",
-	});
 
 	return {
 		isOpen,

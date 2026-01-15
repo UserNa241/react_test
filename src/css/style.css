@@ -16,10 +16,10 @@
 
     /*z-index scale*/
     --z-header: 200;
-    --z-categorybar: 100;
-    --z-bodybefore: 50;
-    --z-sidebar: 200;
-    --z-minibar: 100;
+    --z-categorybar: 200;
+    --z-headerbefore: -1;
+    --z-sidebar: 300;
+    --z-minibar: 200;
     --z-videocard: 0;
     --z-videoAfter: -1;
 }
@@ -63,17 +63,12 @@
 
     background-color: transparent;
     z-index: var(--z-header);
+    isolation: isolate;
 }
 
-body {
-    margin: 0;
-    background-color: white;
-    font-family: sans-serif, Arial;
-}
-
-body::before {
+.header::before {
     content: "";
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -81,7 +76,7 @@ body::before {
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    z-index: var(--z-bodybefore);
+    z-index: var(--z-headerbefore);
     pointer-events: none;
 }
 
@@ -153,7 +148,6 @@ body::before {
     padding: 4px 0px 4px 20px;
     font-size: 18px;
     border: 1px solid #ccc;
-    border-right: 1px solid #ccc;
     border-radius: 40px 0 0 40px;
     min-width: 0px;
 }
@@ -238,7 +232,7 @@ body::before {
 .sidebar.open {
     transform: translateX(0);
     visibility: visible;
-    pointer-event: auto;
+    pointer-events: auto;
 }
 
 .sidebar-link {
@@ -470,9 +464,11 @@ body.sidebar-open .mini-sidebar {
 .video-info-grid {
     padding-top: 10px;
     display: grid;
-    grid-template-columns: 36px 1fr;
+    position: relative;
+    grid-template-columns: 36px 1fr 40px;
     gap: 18px;
     align-items: flex-start;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
 }
 
 .profile-icon {
@@ -482,13 +478,10 @@ body.sidebar-open .mini-sidebar {
     object-fit: cover;
 }
 
-
 .video-title {
     margin: 0;
     font-size: 16px;
     font-weight: 800;
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    /* Truncate text after 2 lines (Optional advanced CSS) */
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -500,6 +493,22 @@ body.sidebar-open .mini-sidebar {
     margin: 2px 0 0;
     font-size: 14px;
     color: #606060;
+}
+
+.video-menu-btn {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    top: -6px;
+    align-self: start;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    background: none;
+}
+
+.video-menu-btn:hover {
+    background-color: #6c6c6c;
 }
 
 .video-author:hover {

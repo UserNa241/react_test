@@ -47,3 +47,18 @@ export function initSearch({sidebar} = {}) {
 
 	return {isOpen, open, close};
 }
+
+export function searchForm() {
+	const searchForm = document.querySelector(".search-box");
+	const searchInput = document.querySelector("#search-input");
+
+	searchForm.addEventListener("submit", (e) => {
+		e.preventDefault();
+
+		const query = searchInput.value.trim();
+		if (!query) return;
+
+		console.log(query);
+	});
+
+}

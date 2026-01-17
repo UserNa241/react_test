@@ -17,8 +17,8 @@ export function videoCardHTML(video) {
           <p class="video-author" tabindex="0">${video.author}</p>
           <p class="video-stats">${video.stats}</p>
         </div>
-        <button class="video-menu-btn" type="button" aria-label="More options">
-          <span class="material-symbols-outlined" aria-hidden="true">more_vert</span>
+        <button class="video-menu-btn" type="button" aria-label="More options" >
+          <span class="material-symbols-outlined" >more_vert</span>
         </button>
       </div>
       

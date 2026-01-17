@@ -2,7 +2,7 @@
 import {videoDB} from "./videos.js";
 
 import {initSidebar} from "./sidebar.js";
-import {initSearch} from "./search.js";
+import {initSearch, searchForm} from "./search.js";
 import {initKeyboard} from "./keyboard.js";
 import {initCategory} from "./category.js";
 import {initFeed} from "./feed.js";
@@ -15,3 +15,4 @@ initKeyboard({sidebar, search});
 initCategory();
 initFeed(videoDB);
 initNavSync();
+searchForm();

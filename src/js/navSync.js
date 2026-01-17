@@ -4,31 +4,29 @@ export function initNavSync() {
 	const sidebar = document.getElementById('sidebar');
 	const minibar = document.querySelector('.mini-sidebar');
 
-	function setActiveIn(container, itemSelector, activeClass, id) {
+	if (!sidebar || !minibar) return;
 
-		const current = container.querySelector("." + activeClass);
+	function setActiveIn(container, itemSelector, id) {
 
-		if (current) {
-			current.classList.remove(activeClass);
-			current.setAttribute('aria-pressed', 'false');
-		}
+		container
+			.querySelectorAll(`${itemSelector}[aria-pressed="true"]`)
+			.forEach((btn) => btn.setAttribute("aria-pressed", "false"));
+
 		if (!id) return;
+
 		const next = container.querySelector(`${itemSelector}[data-id="${id}"]`);
-		if (next) {
-			next.classList.add(activeClass);
-			next.setAttribute('aria-pressed', 'true');
-		}
+		if (next) next.setAttribute('aria-pressed', 'true');
 	}
 
 	function setActiveEverywhere(id) {
-		setActiveIn(sidebar, ".sidebar-link", "sidebar-link-active", id);
+		setActiveIn(sidebar, ".sidebar-link", id);
 
 		const existsInMini = minibar.querySelector(`.mini-link[data-id="${id}"]`);
 
 		if (existsInMini) {
-			setActiveIn(minibar, ".mini-link", "mini-link-active", id);
+			setActiveIn(minibar, ".mini-link", id);
 		} else {
-			setActiveIn(minibar, ".mini-link", "mini-link-active", null);
+			setActiveIn(minibar, ".mini-link", null);
 		}
 	}
 
@@ -44,7 +42,10 @@ export function initNavSync() {
 		setActiveEverywhere(btn.dataset.id);
 	});
 
-	const initialSidebarActive = sidebar.querySelector(".sidebar-link-active");
-	setActiveEverywhere(initialSidebarActive.dataset.id);
+	const initial =
+		sidebar.querySelectorAll('.sidebar-link[aria-pressed="true"]') ||
+		sidebar.querySelector("sidebar-link-active");
+
+	if (initial) setActiveEverywhere(initial.dataset.id);
 
 }

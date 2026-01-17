@@ -47,10 +47,13 @@
 	
 	<form class="search-box" role="search">
 	  <label class="sr-only" for="search-input">Search</label>
-	  <input type="text" class="search-bar" id="search-input" placeholder="Search">
-	  <button aria-label="Search" class="search-btn">
+	  
+	  <input type="text" class="search-bar" id="search-input" placeholder="Search" name="q">
+	  
+	  <button class="search-btn" aria-label="Search" type="submit">
 		<span class="material-symbols-outlined">search</span>
 	  </button>
+	
 	</form>
 	
 	<button aria-label="Microphone" class="icn-btn mic-btn" type="button">
@@ -73,7 +76,7 @@
   <nav aria-label="Sidebar" class="sidebar" id="sidebar">
 	<ul class="sidebar-list">
 	  <li>
-		<button aria-pressed="true" class="sidebar-link sidebar-link-active" type="button" data-id="home">
+		<button aria-pressed="true" class="sidebar-link " type="button" data-id="home">
 		  <span class="sidebar-icon">
 			<span aria-hidden="true" class="material-symbols-outlined">home</span>
 		  </span>
@@ -211,7 +214,7 @@
   
   <div class="backdrop" aria-hidden="true"></div>
   
-  <main class="content">
+  <div class="content">
 	
 	<section class="category-bar">
 	  <button class="category-button category-button-active" type="button" aria-pressed="true">All</button>
@@ -232,7 +235,7 @@
 	</section>
 	
 	<div class="video-grid"></div>
-  </main>
+  </div>
 
 </main>
 

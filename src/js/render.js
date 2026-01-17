@@ -14,7 +14,7 @@ export function videoCardHTML(video) {
 
         <div class="video-text">
           <p class="video-title" tabindex="0">${video.title}</p>
-          <p class="video-author">${video.author}</p>
+          <p class="video-author" tabindex="0">${video.author}</p>
           <p class="video-stats">${video.stats}</p>
         </div>
         <button class="video-menu-btn" type="button" aria-label="More options">

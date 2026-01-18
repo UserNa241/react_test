@@ -43,7 +43,7 @@ export function initFeed(videoDB) {
 
 			cursor = (cursor + BATCH_SIZE) % videoDB.length;
 			isLoading = false;
-		}, 100);
+		}, 200);
 	}
 
 	const sentinel = document.createElement("div");

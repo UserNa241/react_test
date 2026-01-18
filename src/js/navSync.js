@@ -42,9 +42,7 @@ export function initNavSync() {
 		setActiveEverywhere(btn.dataset.id);
 	});
 
-	const initial =
-		sidebar.querySelectorAll('.sidebar-link[aria-pressed="true"]') ||
-		sidebar.querySelector("sidebar-link-active");
+	const initial = sidebar.querySelector('.sidebar-link[aria-pressed="true"]');
 
 	if (initial) setActiveEverywhere(initial.dataset.id);
 

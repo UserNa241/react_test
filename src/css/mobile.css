@@ -10,6 +10,7 @@
         --z-backdrop: 300;
     }
 
+
     html, body {
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* old Edge/IE */
@@ -23,7 +24,11 @@
     }
 
     .menu-btn {
-        margin-left: 8px;
+        margin-left: 4px;
+    }
+
+    .menu-btn:hover {
+        background: none;
     }
 
 
@@ -38,6 +43,10 @@
     }
 
     .country-code {
+        display: none;
+    }
+
+    .skip-btn {
         display: none;
     }
 
@@ -130,7 +139,6 @@
         display: flex;
         position: fixed;
         flex-direction: row;
-        justify-content: space-around;
 
         background: rgba(255, 255, 255, 0.95);
         backdrop-filter: blur(10px);
@@ -145,8 +153,19 @@
         height: var(--minibar-height);
     }
 
-    .mini-sidebar > .mini-link:nth-child(3),
-    .mini-sidebar > .mini-link:nth-child(5) {
+    .mini-sidebar ul {
+        background-color: transparent;
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        list-style: none;
+        padding: 0px 30px;
+    }
+
+    .mini-sidebar .minibar-list > li:nth-child(3),
+    .mini-sidebar .minibar-list > li:nth-child(5) {
         display: none;
     }
 
@@ -175,19 +194,23 @@
 
     .category-bar {
         padding: 4px;
-        padding-left: 12px;
         gap: 10px;
+        margin: 0;
 
     }
 
-    .category-button {
+    .category-bar button {
         font-size: 12px;
-        padding: 8px 10px;
+        padding: 6px 10px;
     }
 
     .content {
         margin: 0;
         padding-bottom: var(--minibar-height);
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
     }
 
     body.sidebar-open .content {

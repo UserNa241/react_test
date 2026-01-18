@@ -1,14 +1,16 @@
-// js/category.js
-import {initPressedGroup} from "./selection.js";
-
 export function initCategory() {
 	const categoryBar = document.querySelector(".category-bar");
-	if (!categoryBar) return;
+	const categoryList = document.querySelector(".category-list");
+	if (!categoryBar || !categoryList) return;
 
-	// event delegation fixes your earlier “active button loses listener” issue
-	initPressedGroup({
-		container: categoryBar,
-		itemSelector: "button",
-		activeClass: "category-button-active",
+	categoryList.addEventListener("click", (e) => {
+		const btn = e.target.closest(".category-button");
+		if (!btn) return;
+
+		const active = categoryList.querySelector('.category-button[aria-pressed="true"]');
+		if (active) {
+			active.setAttribute('aria-pressed', "false");
+		}
+		btn.setAttribute("aria-pressed", "true");
 	});
 }

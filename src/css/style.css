@@ -132,9 +132,10 @@ html[data-theme="dark"] {
 }
 
 :focus-visible {
-    outline: 1px solid var(--c-focus-outline);
+    outline: 2px solid var(--c-focus-outline);
     outline-offset: 0;
 }
+
 
 /* ===========================
    Base
@@ -174,7 +175,6 @@ body {
 
     background-color: transparent;
     z-index: var(--z-header);
-    isolation: isolate;
 }
 
 /* glass layer */
@@ -200,7 +200,6 @@ body {
 }
 
 .menu-btn {
-    display: flex;
     margin-left: 20px;
 
     background: none;
@@ -239,13 +238,43 @@ body {
     top: -4px;
 }
 
+.skip-link {
+    margin-left: 24px;
+    padding: 10px;
+
+    border-radius: 30px;
+    border: 2px solid black;
+
+    background: var(--c-bg);
+    color: var(--c-text);
+
+    text-decoration: none;
+    transform: translateY(-200%);
+
+    font-family: Helvetica;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+.skip-link:hover {
+    background-color: lightgray;
+    border: 2px solid white;
+}
+
 .middle-section {
     display: flex;
     flex: 1;
     align-items: center;
+    justify-content: center;
     max-width: 600px;
     min-width: 0;
     margin: 0 40px;
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+    outline: none;
 }
 
 .search-box {
@@ -264,9 +293,9 @@ body {
 
 .search-bar {
     flex: 1;
-    height: 40px;
-    padding: 4px 0 4px 20px;
-    font-size: 18px;
+    height: 36px;
+    padding: 2px 0 2px 20px;
+    font-size: 16px;
 
     border: 1px solid var(--c-border);
     border-radius: 40px 0 0 40px;
@@ -313,10 +342,10 @@ body {
 }
 
 .sign-in-button {
-    margin-right: 6px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
+    right: 0;
 
     color: var(--c-accent);
     border: 1px solid var(--c-border);
@@ -351,12 +380,9 @@ body {
     top: var(--header-height);
     bottom: 0;
     width: var(--sidebar-width);
-
     background: var(--c-surface);
 
-    transform: translateX(-100%);
     z-index: var(--z-sidebar);
-    transition: transform 100ms ease-in-out;
 
     padding: 8px 20px 12px 4px;
     overflow-y: auto;
@@ -377,7 +403,7 @@ body {
 }
 
 .sidebar.open {
-    transform: translateX(0);
+    /*transform: translateX(0);*/
     visibility: visible;
     pointer-events: auto;
 }
@@ -437,10 +463,6 @@ body {
     padding: 0px 22px;
 }
 
-/* lock scroll when sidebar open */
-body.sidebar-open {
-    overflow: hidden;
-}
 
 body.sidebar-open .content {
     margin-left: var(--sidebar-width);
@@ -492,11 +514,6 @@ body.sidebar-open .mini-sidebar {
     cursor: pointer;
 }
 
-/* Active via ARIA */
-.mini-link[aria-pressed="true"] {
-    background-color: var(--c-hover);
-}
-
 .mini-link:hover {
     background-color: var(--c-hover);
 }
@@ -529,45 +546,33 @@ body.sidebar-open .mini-sidebar {
 
 /* Your category bar is a section; this is ok */
 .category-bar {
-    display: flex;
     position: sticky;
     top: var(--header-height);
     z-index: var(--z-categorybar);
-
-    gap: 12px;
-    background-color: transparent;
-
-    padding: 4px 0;
-    overflow-x: auto;
-    white-space: nowrap;
-    scrollbar-width: none;
-
-    margin-left: 12px;
+    padding-left: 14px;
 }
 
-.category-bar::-webkit-scrollbar {
+.category-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.category-list::-webkit-scrollbar {
     display: none;
 }
 
 /* Base category button style */
 .category-bar button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
     cursor: pointer;
     border-radius: 8px;
     border: none;
-
-    font-family: Arial, Helvetica;
-    font-size: 14px;
-    font-weight: 500;
-
     padding: 10px 16px;
-    flex-shrink: 0;
-
+    font-size: 14px;
     background-color: var(--c-chip);
-    color: inherit;
 }
 
 /* Active via ARIA */
@@ -578,6 +583,10 @@ body.sidebar-open .mini-sidebar {
 
 .category-bar button:hover {
     background-color: var(--c-chip-hover);
+}
+
+.category-bar button[aria-pressed="true"]:hover {
+    background-color: black;
 }
 
 .category-bar button:focus-visible {
@@ -771,3 +780,17 @@ body.sidebar-open .mini-sidebar {
 .scroll-sentinel {
     height: 1px;
 }
+
+
+@media (prefers-reduced-motion: reduce) {
+    .video-card-skeleton .skeleton-avatar,
+    .video-card-skeleton .skeleton-thumbnail,
+    .video-card-skeleton .skeleton-lines {
+        animation: none !important;
+    }
+
+    .video-card:hover::after {
+        display: none;
+    }
+}
+

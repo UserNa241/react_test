@@ -49,7 +49,8 @@ export function initSearch({sidebar} = {}) {
 }
 
 export function searchForm() {
-	const searchForm = document.querySelector(".search-box");
+	console.log("searchForm init ran");
+	const searchForm = document.querySelector("form.search-box");
 	const searchInput = document.querySelector("#search-input");
 
 	searchForm.addEventListener("submit", (e) => {
@@ -57,7 +58,6 @@ export function searchForm() {
 
 		const query = searchInput.value.trim();
 		if (!query) return;
-
 		console.log(query);
 	});
 

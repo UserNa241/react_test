@@ -231,7 +231,7 @@ body.sidebar-open .content {
     display: none;
 }
 
-.thumbnail {
+.video-card__thumbnail {
     border-radius: 0px;
 }
 

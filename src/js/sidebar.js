@@ -3,7 +3,7 @@
 export function initSidebar() {
 	const menuButton = document.querySelector(".menu-btn");
 	const sidebar = document.querySelector(".sidebar");
-	const Links = Array.from(sidebar.querySelectorAll(".sidebar-link"));
+	const Links = Array.from(sidebar.querySelectorAll(".sidebar__link"));
 
 	if (!menuButton || !sidebar) {
 		return {
@@ -49,8 +49,8 @@ export function initSidebar() {
 
 	function setOpen(next) {
 		menuButton.setAttribute("aria-expanded", String(next));
-		sidebar.classList.toggle("open", next);
-		document.body.classList.toggle("sidebar-open", next);
+		sidebar.classList.toggle("sidebar--open", next);
+		document.body.classList.toggle("sidebar--open", next);
 
 		if (next) {
 			Links[0].focus();

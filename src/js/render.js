@@ -13,8 +13,14 @@ export function videoCardHTML(video) {
         </div>
 
         <div class="video-text">
-          <p class="video-title" tabindex="0">${video.title}</p>
-          <p class="video-author" tabindex="0">${video.author}</p>
+          <p class="video-title" tabindex="0">
+			<span class="video-title-text" >${video.title}</span>
+		  </p>
+				
+          <p class="video-author" tabindex="0">
+			<span class="video-author-text">${video.author}</span>
+			</p>
+			
           <p class="video-stats">${video.stats}</p>
         </div>
         <button class="video-menu-btn" type="button" aria-label="More options" >
